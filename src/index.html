@@ -17,43 +17,22 @@
 <body>
   <h1>My first HLS player</h1>
   
-  <!--
-  location for your player window
-  -->
-  <!DOCTYPE html>
-<html>
-<head>
-<meta charset=utf-8 />
-<title>videojs-contrib-hls embed</title>
-  
-  <!--
-
-  Uses the latest versions of video.js and videojs-http-streaming.
-
-  To use specific versions, please change the URLs to the form:
-
-  <link href="https://unpkg.com/video.js@6.7.1/dist/video-js.css" rel="stylesheet">
-  <script src="https://unpkg.com/video.js@6.7.1/dist/video.js"></script>
-  <script src="https://unpkg.com/@videojs/http-streaming@0.9.0/dist/videojs-http-streaming.js"></script>
-
-  -->
-
-  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
-</head>
-<body>
-  <h1>The Big Bunny</h1>
-
-  <video-js id="my_video_1" class="vjs-default-skin" controls preload="auto" width="640" height="268">
-    <source src="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
-  </video-js>
-  
-  <script src="https://unpkg.com/video.js/dist/video.js"></script>
-  <script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
-  
-  <script>
-    var player = videojs('my_video_1');
-  </script>
-  
+ 
+  <div class="player">
+    <video class="player__video viewer" src="
+ https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8"></video>
+    <div class="player__controls">
+      <div class="eiga">
+        <div class="progress__filled"></div>
+      </div>
+      <button class="player__button toggle" title="Toggle play"></button>
+     <input type="range" namename="garsumas" class="player__slider" min=0 max="1" step="0.05" value="1">
+      <input type="range" name="playbackRate" class="
+      player__slider" min="0.5" max="2" step="0.1" value="1">
+      <button data-skip="-15" class="player__button"> -15s </button>
+      <button data-skip="15" class="player__button"> +15s </button>
+      </div>
+    </div>
 
 
 </body>
