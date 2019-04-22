@@ -1,36 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset=utf-8 />
-    <title>Video grotuvas</title>
-
-    <!--
-
-    Uses the latest versions of video.js and videojs-http-streaming.
-
-    To use specific versions, please change the URLs to the form:
-
+    <meta charset=utf-8/>
+    <title>Lab 1,2. Rokas Grabauskas EKSf-15</title>
+    <script src="js/video.js"></script>
+    <script src="js/videojs-http-streaming.js"></script>
     <link href="https://unpkg.com/video.js@6.7.1/dist/video-js.css" rel="stylesheet">
     <script src="https://unpkg.com/video.js@6.7.1/dist/video.js"></script>
     <script src="https://unpkg.com/@videojs/http-streaming@0.9.0/dist/videojs-http-streaming.js"></script>
-
-    -->
-
     <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+
 </head>
 <body>
-<h1>Video grotuvas</h1>
+<h1>Mano pirmasis HLS vaizdo grotuvas</h1>
 
-<video-js id="grotuvas" class="vjs-default-skin" controls preload="auto" width="640" height="268">
-    <source src="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
+
+
+
+
+<video-js id="grotuvas" controls="controls" width="720" hight="800">
+    <source id="video1"  src="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
 </video-js>
-
-<script src="https://unpkg.com/video.js/dist/video.js"></script>
-<script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
+    <div id="klavisai">
+    <button id="play" type="button" onclick="togglePlay()">Groti</button>
+    <button id="pause" type="button" onclick="togglePause()">||</button>
+    <button id="stop" type="button" onclick="toggleStop()">Stop</button>
+    <button id="Skip" type="button" onclick="toggleJump5()">+5s</button>
+    <button id="skipbw" type="button" onclick="toggleBack5()">-5s</button>
+    </div>
 
 <script>
-    var player = videojs('grotuvas'); //butinas
+    var grotuvas = videojs('grotuvas');
+</script>
+
+
+<script>
+
+    var url_input = document.getElementById('input');
+    var vid = document.getElementById('video1');
+    var sp = document.getElementById('myspan');
+
+    url_input.onkeyup = function(e){
+        vid.src = url_input.value;
+        sp.src = url_input.value;
+
+    }
+</script>
+<script>
+
+    var whereYouAt = myPlayer.currentTime()
+
+    togglePlay = function(){
+        myPlayer.play();
+    }
+
+    togglePause = function(){
+        myPlayer.pause();
+    }
+
+    toggleJump5 = function(){
+        myPlayer.currentTime(myPlayer.currentTime()+5)
+    }
+
+    toggleBack5 = function(){
+        myPlayer.currentTime(myPlayer.currentTime()-5)
+    }
+
+    toggleStop = function(){
+        myPlayer.currentTime(0)
+        myPlayer.pause();
+    }
 </script>
 
 </body>
 </html>
+
